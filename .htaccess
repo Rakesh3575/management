@@ -1,0 +1,15 @@
+<IfModule mod_suphp.c>
+    suPHP_ConfigPath /opt/php70/lib
+</IfModule>
+
+
+<IfModule mod_rewrite.c> 
+RewriteEngine On
+RewriteBase /management/
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L]
+</IfModule>
+# Use PHP70 as default
+AddHandler application/x-httpd-php70 .php
